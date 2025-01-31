@@ -1,0 +1,107 @@
+<header class="header">
+  <div class="container">
+    <div class="header__row header__top">
+      <div class="header__row header__top-left">
+        <a href="/" class="logo">
+          <picture class="logo__picture">
+            <img src="./assets/images/logo-market.svg" alt="">
+          </picture>
+        </a>
+        <div class="custom-select" data-select>
+          <button class="custom-select__button" type="button" data-select-btn>
+            <span data-select-btn-tmpl>Выберите регион</span>
+            <svg class="custom-select__icon">
+              <use xlink:href="./assets/sprite.svg#icon-arrow-min"></use>
+            </svg>
+          </button>
+          <div class="custom-select__list" data-select-list>
+            <div class="custom-select__list-wrapper">
+              <ul class="custom-select__list-inner" role="listbox">
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Удмурдская Республика">
+                  <a href="#">Удмурдская Республика</a>
+                </li>
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Марий-Эл Республика">
+                  <a href="#">Марий-Эл Республика</a>
+                </li>
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Белгородская область">
+                  <a href="#">Белгородская область</a>
+                </li>
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Владимирская область">
+                  <a href="#">Владимирская область</a>
+                </li>
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Воронежская область">
+                  <a href="#">Воронежская область</a>
+                </li>
+                <li class="custom-select__list-item"
+                    role="option"
+                    data-value="Ивановская область">
+                  <a href="#">Ивановская область</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <input type="text" data-select-input>
+        </div>
+      </div>
+      <div class="header__row header__top-right">
+        <div class="header__row header__top-block">
+          <a class="" href="tel:+78002200220">+7 (800) 220-02-20</a>
+          <div class="callback">
+            <div class="callback__text">Оформить звонком</div>
+            <div class="callback__icon">
+              <svg>
+                <use xlink:href="./assets/sprite.svg#icon-tel"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <span class="header__divider"></span>
+        <button class="header__login">
+          <span class="header__login-text">Войти</span>
+          <span class="header__login-icon">
+            <svg>
+              <use xlink:href="./assets/sprite.svg#icon-user"></use>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="burger">
+        <div class="burger__item"></div>
+      </div>
+    </div>
+    <div class="header__row header__bottom">
+      <div class="header__row header__bottom-left">
+        <div class="header__search">
+          <button class="header__search-button">
+            <svg>
+              <use xlink:href="./assets/sprite.svg#icon-search"></use>
+            </svg>
+          </button>
+          <form class="header__search-form" action="#">
+            <label class="header__search-label">
+              <input type="text" name="search">
+            </label>
+          </form>
+        </div>
+      </div>
+      <div class="header__bottom-right">
+        <nav class="nav nav--header">
+          <a href="#" target="_blank" class="nav__item active">Список услуг</a>
+          <a href="#" target="_blank" class="nav__item">Контакты</a>
+          <a href="#" target="_blank" class="nav__item">О компании</a>
+          <a href="#" target="_blank" class="nav__item">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
