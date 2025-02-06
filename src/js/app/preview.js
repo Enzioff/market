@@ -11,8 +11,7 @@ class Preview {
     this.mainPreview = this.preview.querySelector(".preview__item--main");
     this.controlElements = this.mainPreview.querySelectorAll("[data-tab]");
     this.items = this.preview.querySelectorAll("[data-content]");
-    this.sliders = this.preview.querySelectorAll(".preview__slider");
-    this.nums = this.preview.querySelectorAll("[data-num]");
+    this.slider = this.preview.querySelector(".preview__slider");
     this.init();
   }
 
@@ -37,6 +36,7 @@ class Preview {
 
           if (itemId === elementId) {
             item.classList.add("active");
+            this.animateFeatures(item);
           }
 
           this.returnToFirstSection(item);
@@ -66,7 +66,6 @@ class Preview {
     let counter = 0;
     setInterval(() => {
       this.controlElements.forEach((temp) => temp.classList.remove("active"));
-      this.sliders.forEach((temp) => temp.classList.remove("active"));
 
       if (counter >= 7) {
         counter = 0;
@@ -74,7 +73,6 @@ class Preview {
         counter++;
       }
       this.controlElements[counter].classList.add("active");
-      this.sliders[counter].classList.add("active");
     }, 3000);
   }
 
@@ -85,7 +83,7 @@ class Preview {
       const num = parseInt(div.getAttribute("data-num"), 10);
       const spanEl = div.querySelector("span");
 
-      let anim = new CountUp(spanEl, num, {separator: ' '});
+      let anim = new CountUp(spanEl, num, { separator: " " });
       if (!anim.error) {
         anim.start();
       } else {
@@ -93,4 +91,26 @@ class Preview {
       }
     });
   }
+
+  animateFeatures = (container) => {
+    const elements = container.querySelectorAll(".preview__element");
+    const showBtn = container.querySelector("[data-content-show-btn]");
+    let interval = null;
+    let idx = 0;
+
+    showBtn.addEventListener("click", () => {
+      elements[0].classList.add("active");
+
+      setInterval(() => {
+        idx++;
+        if (elements[idx]) {
+          elements[idx].classList.add("active");
+        }
+      }, 2000);
+
+      if (elements.length === idx) {
+        clearInterval(interval);
+      }
+    });
+  };
 }

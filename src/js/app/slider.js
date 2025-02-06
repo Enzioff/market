@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination, EffectFade, Thumbs } from "swiper";
+import Swiper, { Navigation, Pagination, EffectFade, Thumbs, Autoplay } from "swiper";
 import ar from "air-datepicker/locale/ar";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,6 +32,7 @@ function createSlider(el) {
   const mobile = window.matchMedia("(min-width: 0px) and (max-width: 768px)");
   const looped = el.querySelectorAll(".swiper-slide").length > 3;
   const loop = el.hasAttribute("data-loop");
+  const autoPlay = el.hasAttribute("data-auto");
   const wrapper = el.querySelector(".swiper-wrapper");
   const slidesQuantity = parseInt(el.getAttribute("data-slider-slides"), 10);
   const slidesQuantityTab = parseInt(
@@ -79,7 +80,7 @@ function createSlider(el) {
 
   function callSlider(el) {
     return new Swiper(el.querySelector(".swiper"), {
-      modules: [Navigation, Pagination, EffectFade, Thumbs],
+      modules: [Navigation, Pagination, EffectFade, Thumbs, Autoplay],
       slidesPerView: slidesQuantity,
       spaceBetween: 30,
       slideVisibleClass: "slider__slide--visible",
@@ -88,6 +89,9 @@ function createSlider(el) {
       effect: effect,
       dragging: true,
       autoHeight: false,
+      autoplay: autoPlay ? {
+        delay: 2000,
+      } : false,
       pagination: {
         el: pagination,
         clickable: true,
