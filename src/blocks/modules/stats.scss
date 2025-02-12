@@ -5,6 +5,10 @@
 
   &__item {
     min-height: 200px;
+
+    @include r($mobile) {
+      min-height: auto;
+    }
   }
 
   &__title {
@@ -16,8 +20,21 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    color: $color-blue;
+
+    @include r($mobile) {
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 60px;
+    }
+
     span {
       font-size: 18px;
+
+      @include r($mobile) {
+        font-size: 14px;
+        line-height: 16px;
+      }
     }
   }
 

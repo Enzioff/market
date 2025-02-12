@@ -2518,15 +2518,15 @@ img {
 }
 
 .title {
-  font-size: calc(32px + 32 * (100vw - 320px) / 1600);
+  font-size: 64px;
   font-family: "PFDinTextCompPro", sans-serif;
   color: #060614;
   font-weight: 500;
   line-height: normal;
 }
-@media only screen and (min-width: 1920px) {
+@media only screen and (max-width: 767.9px) {
   .title {
-    font-size: 4rem;
+    font-size: 30px;
   }
 }
 .title--light {
@@ -3564,7 +3564,7 @@ img {
   background-color: #1A599A;
   color: #FFFFFF;
   font-family: "PFDinTextCompPro", sans-serif;
-  z-index: 5;
+  z-index: 11;
 }
 .header__row {
   display: -webkit-box;
@@ -5108,7 +5108,7 @@ img {
   width: 100%;
   max-width: 15.9375rem;
   padding: 1.1875rem 2.1875rem;
-  background-color: #F0F1F6;
+  background-color: #EBF0F3;
   border-radius: 1.25rem;
 }
 .tabs-address__trigger {
@@ -5183,12 +5183,12 @@ img {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
-  color: #2034E9;
+  color: #1A599A;
 }
 .tabs-address__card-item-link svg {
   max-width: 1.0625rem;
   max-height: 1.1875rem;
-  fill: #2034E9;
+  fill: #1A599A;
 }
 .tabs-address__map {
   width: 100%;
@@ -5212,13 +5212,13 @@ img {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
-  color: #858FA4;
+  color: #242830;
   font-weight: 500;
 }
 .contacts__link svg {
   max-width: 0.9375rem;
   max-height: 1.1875rem;
-  fill: #858FA4;
+  fill: #1A599A;
 }
 .contacts__wrapper {
   display: -webkit-box;
@@ -5248,14 +5248,21 @@ img {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
+  color: #242830;
 }
 .contacts__item-link svg {
   max-width: 1rem;
   max-height: 1.1875rem;
+  fill: #1A599A;
 }
 .contacts__card {
-  border-radius: 0.5rem;
+  border-radius: 1.25rem;
   min-height: 23rem;
+}
+@media only screen and (max-width: 767.9px) {
+  .contacts__card {
+    min-height: auto;
+  }
 }
 .contacts__card-inner {
   width: 100%;
@@ -5294,7 +5301,7 @@ img {
   max-width: 9.375rem;
 }
 .contacts__card--accent {
-  background-color: #2034E9;
+  background-color: #1A599A;
   padding: 2.1875rem 2.5rem;
   color: #FFFFFF;
 }
@@ -5426,10 +5433,25 @@ img {
   margin-bottom: 2.25rem;
 }
 .info-block__subtitle {
-  font-weight: 500;
+  font-family: "PFDinTextCompPro", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #242830;
+}
+@media only screen and (max-width: 767.9px) {
+  .info-block__subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 .info-block__subtitle p + p {
   margin-top: 1.875rem;
+}
+@media only screen and (max-width: 767.9px) {
+  .info-block__subtitle p + p {
+    margin-top: 1.25rem;
+  }
 }
 .info-block__content {
   color: #60606E;
@@ -5440,12 +5462,20 @@ img {
   left: -70%;
   max-width: 403px;
 }
+@media only screen and (max-width: 767.9px) {
+  .info-block__content {
+    font-family: "PFDinTextCompPro", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
 .info-block__content p + p {
   margin-top: 1.875rem;
 }
 .info-block__content hr {
   height: 2px;
-  background-color: #2034E9;
+  background-color: #1A599A;
   margin: 2.375rem 0;
 }
 
@@ -6225,6 +6255,11 @@ img {
 .stats__item {
   min-height: 200px;
 }
+@media only screen and (max-width: 767.9px) {
+  .stats__item {
+    min-height: auto;
+  }
+}
 .stats__title {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6240,9 +6275,23 @@ img {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  color: #1A599A;
+}
+@media only screen and (max-width: 767.9px) {
+  .stats__title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+  }
 }
 .stats__title span {
   font-size: 18px;
+}
+@media only screen and (max-width: 767.9px) {
+  .stats__title span {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 .stats__text {
   color: #60606E;
@@ -7627,4 +7676,118 @@ img {
     width: 16px;
     height: 16px;
   }
+}
+
+.faq {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.faq__item {
+  border-top: 1px solid #E9E9E9;
+  border-bottom: 1px solid #E9E9E9;
+}
+.faq__item.active .faq__content {
+  grid-template-rows: 1fr;
+  padding: 0 10px 24px;
+}
+.faq__item.active .faq__button::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.faq__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+  padding: 24px 10px;
+  cursor: pointer;
+}
+@media only screen and (max-width: 767.9px) {
+  .faq__header {
+    padding: 16px 10px;
+  }
+}
+.faq__title {
+  max-width: 670px;
+  font-family: "PFDinTextCompPro", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #242830;
+}
+@media only screen and (max-width: 767.9px) {
+  .faq__title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.faq__button {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.faq__button::before, .faq__button::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 6px;
+  width: 12px;
+  height: 2px;
+  background-color: #6F767E;
+  border-radius: 10px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+.faq__button::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.faq__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 10px;
+  overflow: hidden;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+.faq__content p {
+  font-family: "PFDinTextCompPro", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7B7B8B;
+  overflow: hidden;
+}
+.faq__content p a {
+  text-decoration: underline;
 }

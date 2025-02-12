@@ -1,0 +1,97 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+
+    &.active {
+      .faq__content {
+        grid-template-rows: 1fr;
+        padding: 0 10px 24px;
+      }
+      .faq__button {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 10px;
+    cursor: pointer;
+
+    @include r($mobile) {
+      padding: 16px 10px;
+    }
+  }
+
+  &__title {
+    max-width: 670px;
+    font-family: $font-accent;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #242830;
+
+    @include r($mobile) {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 11px;
+      left: 6px;
+      width: 12px;
+      height: 2px;
+      background-color: #6F767E;
+      border-radius: 10px;
+      transition: .2s linear;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: .2s linear;
+
+    p {
+      font-family: $font-accent;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #7B7B8B;
+      overflow: hidden;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}

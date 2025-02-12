@@ -9,3 +9,5 @@ import "./app/slider";
 import "./app/text-writing";
 import "./app/preview";
 import "./app/form-request";
+import "./app/faq";
+import "./app/observer";

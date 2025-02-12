@@ -27428,6 +27428,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_text_writing__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_app_text_writing__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _app_preview__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app/preview */ "./src/js/app/preview.js");
 /* harmony import */ var _app_form_request__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app/form-request */ "./src/js/app/form-request.js");
+/* harmony import */ var _app_faq__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app/faq */ "./src/js/app/faq.js");
+/* harmony import */ var _app_faq__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_app_faq__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _app_observer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app/observer */ "./src/js/app/observer.js");
+/* harmony import */ var _app_observer__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_app_observer__WEBPACK_IMPORTED_MODULE_12__);
+
+
 
 
 
@@ -27461,6 +27467,35 @@ document.addEventListener("DOMContentLoaded", () => {
     autoFocus: true,
   });
 })
+
+/***/ }),
+
+/***/ "./src/js/app/faq.js":
+/*!***************************!*\
+  !*** ./src/js/app/faq.js ***!
+  \***************************/
+/***/ (function() {
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFaq()
+})
+
+const initFaq = () => {
+  const faq = document.querySelector('.faq');
+
+  if (!faq) return;
+
+  const faqItems = faq.querySelectorAll('.faq__item');
+
+  faqItems.forEach((item) => {
+    const header = item.querySelector('.faq__header');
+
+    header.addEventListener('click', () => {
+      item.classList.toggle('active');
+    })
+  })
+}
+
 
 /***/ }),
 
@@ -27934,6 +27969,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/***/ }),
+
+/***/ "./src/js/app/observer.js":
+/*!********************************!*\
+  !*** ./src/js/app/observer.js ***!
+  \********************************/
+/***/ (function() {
+
+document.addEventListener("DOMContentLoaded", () => {
+  initHeaderObserver();
+});
+
+const initHeaderObserver = () => {
+  const sections = document.querySelectorAll("[data-observ]");
+  if (!sections) return;
+
+  const navItems = document.querySelectorAll(".nav__item");
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const entryId = entry.target.getAttribute("id");
+        navItems.forEach(temp => temp.classList.remove("active"));
+        navItems.forEach((item) => {
+          const itemId = item.getAttribute("data-id");
+          if (itemId === entryId) {
+            item.classList.add("active");
+          }
+        });
+      }
+    });
+  };
+
+  const options = {
+    rootMargin: `-${window.innerHeight / 2}px 0px -${window.innerHeight / 2}px 0px`,
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  sections.forEach((section) => observer.observe(section));
+};
+
 
 /***/ }),
 
